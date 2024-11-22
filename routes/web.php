@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', DashboardController::class)->name('dashboard');
 
-Route::get('hello', function () {
-    return 'Hello World!';
-});
+Route::resource('users', UserController::class);
 
