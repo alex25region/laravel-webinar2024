@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Создание пользователя')
 
 @section('content')
     <div class="content-wrapper">

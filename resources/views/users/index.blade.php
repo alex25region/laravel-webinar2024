@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Пользователи')
 
 @section('content')
     <div class="content-wrapper">
@@ -27,12 +28,12 @@
 
                     <table class="table table-striped table-hover table-sm">
                         <thead>
-                            <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Действия</th>
-                            </tr>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Действия</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $user)
@@ -61,6 +62,11 @@
                         @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="row">
+                    <div class="w-100 d-flex align-items-center justify-content-center">
+                        {{ $users->links() }}
+                    </div>
                 </div>
             </div>
         </section>
