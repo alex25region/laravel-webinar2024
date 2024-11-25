@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Пользователи')
 
 @section('content')
     <div class="content-wrapper">
@@ -18,17 +19,21 @@
             </div>
         </div>
 
-        <section class="content">
+        <section class="content px-4">
             <div class="container-fluid">
                 <div class="row">
-                    <table class="table table-striped table-hover mx-3 table-sm">
+                    <div class="mb-3">
+                        <a href="{{ route('users.create') }}" class="btn btn-primary px-5 shadow-sm"><i class="fa fa-plus mr-2"></i>Создать</a>
+                    </div>
+
+                    <table class="table table-striped table-hover table-sm">
                         <thead>
-                            <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Действия</th>
-                            </tr>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Действия</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $user)
@@ -42,7 +47,9 @@
                                     </a>
                                     &nbsp;
                                     <a href="#" class="text-danger"
-                                       onclick="event.preventDefault(); document.getElementById('user-delete-{{ $user->id }}').submit();">
+                                       onclick="event.preventDefault();
+                                       if(confirm('Вы действительно хотите удалить пользователя?')) {document.getElementById('user-delete-{{ $user->id }}').submit();}
+                                       ">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                     <form action="{{ route('users.destroy', $user) }}" method="POST"
@@ -55,6 +62,11 @@
                         @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="row">
+                    <div class="w-100 d-flex align-items-center justify-content-center">
+                        {{ $users->links() }}
+                    </div>
                 </div>
             </div>
         </section>

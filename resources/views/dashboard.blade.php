@@ -12,19 +12,16 @@
             </div>
         </div>
 
-        <section class="content">
+        <section class="content px-3">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-6">
-                        <div class="small-box bg-info">
+                        <div class="small-box bg-success">
                             <div class="inner">
                                 <h3>{{ $countUsers }}</h3>
                                 <p>Пользователи</p>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="{{ route('users.index') }}" class="small-box-footer">Больше информации <i
+                            <a href="{{ route('users.index') }}" class="small-box-footer">Больше информации&nbsp;&nbsp;<i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
